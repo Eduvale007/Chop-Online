@@ -1,14 +1,22 @@
-/* Reset Básico */
+/* 1. RESET E CONFIGURAÇÕES GLOBAIS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: #000; /* Fundo base preto para evitar flashes brancos */
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    color: #333;
+    padding-top: 80px; /* Compensa a navbar fixa */
 }
 
 .container {
@@ -17,11 +25,15 @@ body {
     padding: 0 20px;
 }
 
-/* Navbar */
+/* 2. NAVBAR FIXA */
 .navbar {
     background: #fff;
-    padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 2000;
 }
 
 .navbar .container {
@@ -30,97 +42,138 @@ body {
     align-items: center;
 }
 
+.logo img {
+    height: 60px; 
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover { transform: scale(1.05); }
+
+/* Menu Desktop */
 .navbar nav ul {
     display: flex;
     list-style: none;
+    gap: 15px;
 }
 
 .navbar nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
-    padding: 10px 15px;
+    padding: 10px 5px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.navbar nav ul li a:hover { color: #e67e22; }
+
+.navbar nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #e67e22;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar nav ul li a:hover::after { width: 100%; }
+
+/* 3. BOTÃO HAMBÚRGUER */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    gap: 5px;
+    z-index: 2100;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    border-radius: 2px;
     transition: 0.3s;
 }
 
-.navbar nav ul li a:hover, .active {
-    color: #e67e22;
-}
-
-/* Hero Section */
+/* 4. HERO SECTION (BANNER PRINCIPAL) */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background-chopp.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/chopp-main.png');
+    background-size: cover;      
+    background-position: center top;
+    background-repeat: no-repeat;
+    height: 90vh;                
+    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center;         
+    justify-content: center;    
     text-align: center;
     color: white;
+    margin-top: -1px; /* Remove filetinho branco no topo */
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: clamp(2.2rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    font-weight: 800;
+    text-transform: uppercase;
 }
 
 .hero h1 span {
     color: #f1c40f;
+    display: block;
+    margin-top: 10px;
 }
 
 .btn-whatsapp {
-    background: #25d366;
-    color: white;
-    padding: 15px 30px;
+    background-color: #25d366;
+    color: #fff;
+    padding: 18px 35px;
+    border-radius: 50px;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
+    margin-top: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
 .btn-whatsapp:hover {
-    background: #128c7e;
+    background-color: #128c7e;
+    transform: translateY(-3px);
 }
 
-/* Grid de Serviços */
-.servicos {
-    padding: 60px 0;
+/* 5. SEÇÃO SERVIÇOS (DARK PREMIUM) */
+.servicos-black {
+    /* CORREÇÃO AQUI: Escurecemos mais e garantimos que o fundo seja preto puro */
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.11)), 
+                url('images/fundo_preto.png');
+    background-color: #000; /* Preenche o canto esquerdo caso a imagem não alcance */
+    background-size: cover; 
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 100px 0;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.servicos-black h2 {
     text-align: center;
-}
-
-.grid-servicos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.card h3 {
-    color: #e67e22;
-    margin-bottom: 10px;
-}
-
-/* Seção de Serviços Estilizada */
-.servicos {
-    background-color: #1a1a1a; /* Preto levemente acinzentado para dar profundidade */
-    padding: 80px 0;
-    text-align: center;
-    color: #ffffff; /* Texto geral em branco */
-}
-
-.servicos h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    color: #f1c40f;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
     text-transform: uppercase;
-    color: #f1c40f; /* Amarelo/Dourado principal */
     letter-spacing: 2px;
 }
 
@@ -128,128 +181,180 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    margin-top: 40px;
+    position: relative;
+    z-index: 5;
 }
 
-/* Seção com fundo preto total */
-.servicos-black {
-    background-color: #1a1a1a; /* Cor preta da imagem */
-    width: 100%;
-    padding: 80px 0;
-    color: #ffffff;
-}
-
-/* Centralização do título e grid */
-.servicos-black h2 {
-    text-align: center;
-    color: #f1c40f; /* Amarelo Chopp */
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.grid-servicos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-/* Cards com estilo escuro e borda amarela no hover */
 .card {
-    background: #262626; /* Cinza muito escuro */
-    padding: 40px 30px;
-    border-radius: 12px;
+    background: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 50px 30px;
+    border-radius: 15px;
     text-align: center;
-    transition: transform 0.3s ease, border 0.3s ease;
     border: 1px solid #333;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    border-color: #f1c40f; /* Brilho amarelo ao passar o mouse */
+    transform: translateY(-15px);
+    border-color: #f1c40f;
+    box-shadow: 0 15px 35px rgba(241, 196, 15, 0.15);
 }
 
 .card img {
-    width: 60px;
-    margin-bottom: 20px;
-    /* Se a imagem for preta, este filtro ajuda a deixá-la amarelada */
+    width: 70px;
+    margin-bottom: 25px;
     filter: sepia(1) saturate(20) hue-rotate(10deg);
 }
 
 .card h3 {
     color: #f1c40f;
-    font-size: 1.4rem;
     margin-bottom: 15px;
     text-transform: uppercase;
 }
 
-.card p {
-    color: #cccccc;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-
+/* 6. FOOTER */
 .footer-black {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 60px 0 20px 0;
-    font-size: 0.9rem;
-    border-top: 2px solid #f1c40f; /* Linha amarela sutil no topo */
+    background-color: #000;
+    color: #fff;
+    padding: 80px 0 30px 0;
+    border-top: 4px solid #f1c40f;
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
-    margin-bottom: 40px;
+    width: 100%;
 }
 
 .footer-col h3 {
-    color: #f1c40f; /* Amarelo das imagens */
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    color: #f1c40f;
+    margin-bottom: 25px;
     text-transform: uppercase;
 }
 
-.footer-col p, .footer-col address {
-    line-height: 1.8;
-    color: #cccccc;
-    font-style: normal;
+/* Estilização da linha de baixo */
+.footer-bottom {
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #222; /* Linha sutil de separação */
+    text-align: center;
+    clear: both; /* Garante que não haja interferência de floats */
 }
 
 .link-amarelo {
-    color: #f1c40f;
+    color: #f1c40f !important; /* Amarelo Chopp Online */
     text-decoration: none;
     font-weight: bold;
-    display: inline-block;
-    margin-top: 10px;
+    text-transform: lowercase;
+    
+    /* Aumentando o tamanho */
+    font-size: 1.1rem; 
+    
+    /* Prepara o elemento para se mover */
+    display: inline-block; 
+    transition: all 0.3s ease; /* Transição suave para todos os efeitos */
 }
 
-.logos-parceiros, .cartoes {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    margin-bottom: 20px;
+/* Efeito ao passar o mouse */
+.link-amarelo:hover {
+    color: #ffffff;
+    
+    /* Efeito de levantar (-5px move para cima) */
+    transform: translateY(-5px); 
+    
+    /* Opcional: um brilho suave para destacar no fundo preto */
+    text-shadow: 0px 0px 8px rgba(241, 196, 15, 0.5);
 }
 
-.logos-parceiros img {
-    height: 50px;
-    filter: grayscale(1) brightness(1.5); /* Efeito elegante para os logos */
-    transition: 0.3s;
+/* 7. RESPONSIVIDADE (MEDIA QUERIES) */
+
+/* TABLET */
+@media (max-width: 1024px) {
+    .grid-servicos { grid-template-columns: repeat(2, 1fr); }
+    .servicos-black { background-size: contain; background-position: center bottom; }
+
+
+    
+/* 5. SEÇÃO SERVIÇOS (DARK PREMIUM) */
+.servicos-black {
+    /* CORREÇÃO AQUI: Escurecemos mais e garantimos que o fundo seja preto puro */
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.11)), 
+                url('images/fundo_preto_tablet.png');
+    background-color: #000; /* Preenche o canto esquerdo caso a imagem não alcance */
+    background-size: cover; 
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 100px 0;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
 }
 
-.logos-parceiros img:hover {
-    filter: none; /* Logo ganha cor no hover */
 }
 
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #333;
-    padding-top: 20px;
-    margin-top: 20px;
-    font-size: 0.8rem;
-    color: #666;
+/* MOBILE */
+@media (max-width: 768px) {
+    body { padding-top: 70px; }
+    
+    .hamburger { display: flex; }
+
+   #nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 70%;
+        
+        /* CORREÇÃO AQUI */
+        height: auto;          /* Deixa o menu do tamanho dos itens */
+        max-height: 85vh;      /* Limita a 85% da altura da tela */
+        border-radius: 0 0 0 20px; /* Arredonda o canto inferior para estilo premium */
+        
+        background: #ffffff;
+        padding-top: 80px;      /* Espaço para o botão fechar/hambúrguer */
+        transition: 0.4s ease-in-out;
+        z-index: 1000;
+        box-shadow: -5px 5px 15px rgba(0,0,0,0.2);
+        
+        /* Caso os itens ultrapassem a altura, ele cria um scroll interno */
+        overflow-y: auto; 
+    }
+
+    #nav-menu.active { right: 0; }
+
+    #nav-menu ul { flex-direction: column; text-align: center; }
+
+    #nav-menu ul li a {
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+        display: block;
+    }
+
+    .hero { height: 75vh; }
+    .hero h1 { font-size: 2.5rem; }
+    
+    .grid-servicos { grid-template-columns: 1fr; }
+
+
+    
+/* 5. SEÇÃO SERVIÇOS (DARK PREMIUM) */
+.servicos-black {
+    /* CORREÇÃO AQUI: Escurecemos mais e garantimos que o fundo seja preto puro */
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.11)), 
+                url('images/fundo_preto_celular.png');
+    background-color: #000; /* Preenche o canto esquerdo caso a imagem não alcance */
+    background-size: cover; 
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 100px 0;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+
 }

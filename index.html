@@ -9,22 +9,31 @@
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="container">
-            <div class="logo">
-                <img src="logo.png" alt="Chopp Online Logo">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="sobre.html">SOBRE</a></li>
-                    <li><a href="servicos.html">SERVIÇOS</a></li>
-                    <li><a href="produtos.html">PRODUTOS</a></li>
-                    <li><a href="contato.html" class="active">FALE CONOSCO</a></li>
-                </ul>
-            </nav>
+<header class="navbar">
+    <div class="container">
+        <div class="logo">
+            <img src="images/logo.jpeg" alt="Chopp Online - Distribuidora">
         </div>
-    </header>
+        
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="sobre.html">SOBRE</a></li>
+                <li><a href="servicos.html">SERVIÇOS</a></li>
+                <li><a href="produtos.html">PRODUTOS</a></li>
+                <li><a href="contato.html">FALE CONOSCO</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div id="overlay" class="overlay"></div>
+
 
     <section class="hero">
         <div class="hero-content">
@@ -57,45 +66,44 @@
 </section>
 
    <footer class="footer-black">
-    <div class="container footer-grid">
-        
-        <div class="footer-col">
-            <h3>QUEM SOMOS</h3>
-            <p>Nosso principal objetivo é satisfazer nossos clientes além de superar suas expectativas, e oferecer um papel diferenciado e de referência no setor de distribuição de chopp e cervejas especiais.</p>
-            <a href="sobre.html" class="link-amarelo">saiba mais</a>
-        </div>
-
-        <div class="footer-col">
-            <h3>CONTATE-NOS</h3>
-            <address>
-                <p>📍 Av. Visconde de Nova Granada, 1095<br>
-                Jardim Bela Vista – CEP- 06080-125<br>
-                Osasco - SP</p>
-                
-                <p>📞 (11) 3695-3557 / (11) 3608-3038</p>
-                <p>📱 (11) 9.4745-0073 / (11) 9.4745-0090</p>
-                <p>✉️ <a href="mailto:chopponline@chopponline.com.br">chopponline@chopponline.com.br</a></p>
-            </address>
-        </div>
-
-        <div class="footer-col">
-            <h3>PARCEIROS</h3>
-            <div class="logos-parceiros">
-                <img src="logo-kremer.png" alt="Chopp Kremer">
-                <img src="logo-dortmund.png" alt="Dortmund Bier">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div class="footer-col">
+                <h3>QUEM SOMOS</h3>
+                <p>Nosso principal objetivo é satisfazer nossos clientes além de superar suas expectativas...</p>
+                <a href="sobre.html" class="link-amarelo">saiba mais</a>
             </div>
-            <h3>PAGAMENTO</h3>
-            <div class="cartoes">
-                <img src="cartoes-icon.png" alt="Visa, Mastercard, Elo, Amex">
+
+            <div class="footer-col">
+                <h3>CONTATE-NOS</h3>
+                <address>
+                    <p>📍 Av. Visconde de Nova Granada, 1095<br>
+                    Jardim Bela Vista – CEP- 06080-125<br>
+                    Osasco - SP</p>
+                    <p>📞 (11) 3695-3557 / (11) 3608-3038</p>
+                    <p>📱 (11) 9.4745-0073 / (11) 9.4745-0090</p>
+                    <p>✉️ <a href="mailto:chopponline@chopponline.com.br">chopponline@chopponline.com.br</a></p>
+                </address>
             </div>
+
+            <div class="footer-col">
+                <h3>PARCEIROS</h3>
+                <div class="logos-parceiros">
+                    <img src="logo-kremer.png" alt="Chopp Kremer">
+                    <img src="logo-dortmund.png" alt="Dortmund Bier">
+                </div>
+                <h3>PAGAMENTO</h3>
+                <div class="cartoes">
+                    <img src="images/icones_pagamento.png" alt="Visa, Mastercard, Elo, Amex">
+                </div>
+            </div>
+
+        </div> <div class="footer-bottom">
+            <p>Chopp Online &copy; 2026 - Desenvolvido por seu Portfólio de TI</p>
         </div>
 
-    </div>
-    
-    <div class="footer-bottom">
-        <p>Chopp Online &copy; 2026 - Desenvolvido por seu Portfólio de TI</p>
-    </div>
-</footer>
-
+    </div> </footer>
+<script src="menu.js"></script>
 </body>
 </html>
