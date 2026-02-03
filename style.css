@@ -9,14 +9,14 @@ html, body {
     width: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    background-color: #000; /* Fundo base preto para evitar flashes brancos */
+    background-color: #000;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #333;
-    padding-top: 80px; /* Compensa a navbar fixa */
+    padding-top: 80px;
 }
 
 .container {
@@ -51,7 +51,6 @@ body {
 
 .logo img:hover { transform: scale(1.05); }
 
-/* Menu Desktop */
 .navbar nav ul {
     display: flex;
     list-style: none;
@@ -103,7 +102,7 @@ body {
     transition: 0.3s;
 }
 
-/* 4. HERO SECTION (BANNER PRINCIPAL) */
+/* 4. HERO SECTION */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/chopp-main.png');
     background-size: cover;      
@@ -116,7 +115,7 @@ body {
     justify-content: center;    
     text-align: center;
     color: white;
-    margin-top: -1px; /* Remove filetinho branco no topo */
+    margin-top: -1px;
 }
 
 .hero h1 {
@@ -154,10 +153,9 @@ body {
 
 /* 5. SEÇÃO SERVIÇOS (DARK PREMIUM) */
 .servicos-black {
-    /* CORREÇÃO AQUI: Escurecemos mais e garantimos que o fundo seja preto puro */
     background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.11)), 
                 url('images/fundo_preto.png');
-    background-color: #000; /* Preenche o canto esquerdo caso a imagem não alcance */
+    background-color: #000;
     background-size: cover; 
     background-position: right bottom;
     background-repeat: no-repeat;
@@ -224,8 +222,8 @@ body {
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-items: flex-start;
     gap: 40px;
-    width: 100%;
 }
 
 .footer-col h3 {
@@ -234,127 +232,400 @@ body {
     text-transform: uppercase;
 }
 
-/* Estilização da linha de baixo */
+/* AJUSTE DAS LOGOS E PAGAMENTOS */
+.logos-parceiros, .cartoes {
+    display: grid;
+    /* Divide em 4 colunas de tamanhos exatamente iguais */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.logos-parceiros img, .cartoes img {
+    width: 100%;       /* Faz a imagem ocupar a largura da coluna do grid */
+    height: auto;      /* Mantém a proporção */
+    max-height: 50px;  /* Limita a altura para não desalinhar a linha */
+    object-fit: contain; /* Garante que a logo não seja cortada */
+}
+
+
+
+.cartoes img {
+    max-width: 200px;
+    height: auto;
+}
+
+.link-amarelo {
+    color: #f1c40f !important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem; 
+    display: inline-block; 
+    transition: all 0.3s ease;
+}
+
+.link-amarelo:hover {
+    color: #ffffff;
+    transform: translateY(-5px); 
+    text-shadow: 0px 0px 8px rgba(241, 196, 15, 0.5);
+}
+
 .footer-bottom {
     width: 100%;
     margin-top: 30px;
     padding-top: 25px;
-    border-top: 1px solid #222; /* Linha sutil de separação */
+    border-top: 1px solid #222;
     text-align: center;
-    clear: both; /* Garante que não haja interferência de floats */
 }
 
-.link-amarelo {
-    color: #f1c40f !important; /* Amarelo Chopp Online */
+.footer-col address a {
+    color: #f1c40f; /* Sugestão: Amarelo para seguir o padrão */
+    text-decoration: none;
+    transition: 0.3s;
+    border-bottom: 1px transparent; /* Prepara para o efeito de linha */
+}
+
+.footer-col address a:hover {
+    color: #ffffff;
+    text-decoration: underline; /* Linha aparece só no hover */
+}
+
+
+
+/* --- SEÇÃO SOBRE NÓS --- */
+/* --- SEÇÃO SOBRE NÓS --- */
+.sobre-nos {
+    /* Usando a imagem cinza que geramos, com um gradiente para escurecer */
+    background: linear-gradient(rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.85)), 
+                url('images/fundo_preto_servicos.png');
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito parallax para dar profundidade */
+    padding: 100px 0;
+    color: #ffffff;
+    min-height: 80vh;
+    position: relative;
+}
+
+/* Detalhe para destacar o título */
+.sobre-header h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #f1c40f; /* Mantendo o padrão Amarelo Chopp */
+    text-transform: uppercase;
+ margin-bottom: 25px;
+    /* Sombra leve para descolar do fundo texturizado */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Deixando o box de texto mais legível sobre a textura */
+.sobre-text {
+    background: rgba(20, 20, 20, 0.6); /* Fundo semi-transparente escuro */
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px); /* Efeito de vidro fosco */
+    border-left: 4px solid #f1c40f;
+}
+
+.sobre-header .tagline {
+    color: #cccccc;
+    font-size: 1.2rem;
+    /* AJUSTE AQUI: Garante que ela não cole no título nem no box abaixo */
+    margin-top: 10px;
+    margin-bottom: 40px; 
+    display: block; /* Garante que a margem funcione corretamente */
+}
+/* Layout em duas colunas */
+.sobre-content {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Para mobile */
+}
+
+.sobre-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.sobre-text h3 {
+    color: #f1c40f;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+.sobre-text p {
+    color: #dddddd;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Galeria de Fotos em Grid */
+.sobre-gallery {
+    flex: 1;
+    min-width: 300px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Corta a imagem sem distorcer */
+    border: 3px solid #333;
+    border-radius: 8px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    border-color: #f1c40f;
+    cursor: pointer;
+}
+
+/* Ajustes Específicos do Link de Email que você perguntou */
+.link-email {
+    color: #f1c40f !important;
     text-decoration: none;
     font-weight: bold;
-    text-transform: lowercase;
-    
-    /* Aumentando o tamanho */
-    font-size: 1.1rem; 
-    
-    /* Prepara o elemento para se mover */
-    display: inline-block; 
-    transition: all 0.3s ease; /* Transição suave para todos os efeitos */
 }
 
-/* Efeito ao passar o mouse */
-.link-amarelo:hover {
-    color: #ffffff;
-    
-    /* Efeito de levantar (-5px move para cima) */
-    transform: translateY(-5px); 
-    
-    /* Opcional: um brilho suave para destacar no fundo preto */
-    text-shadow: 0px 0px 8px rgba(241, 196, 15, 0.5);
+.link-email:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
 }
+
+/* Estilos Específicos da Página de Serviços */
+.servicos-page {
+    /* Aumentamos de 0.85 para 0.95 e de 0.5 para 0.8 para escurecer bem a imagem */
+    background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.8)), 
+                url('images/fundo_preto_servicos.png');
+    background-color: #000;
+    background-size: cover;
+    background-position: center; /* Garante que a imagem fique centralizada */
+    background-attachment: fixed; /* Opcional: cria um efeito parallax elegante */
+    padding: 100px 0;
+    color: #fff;
+    min-height: 100vh;
+}
+.header-servicos {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.header-servicos h1 {
+    font-size: 3rem;
+    color: #f1c40f; /* Amarelo Chopp */
+    margin-bottom: 10px;
+}
+
+.header-servicos .subtitle {
+    letter-spacing: 2px;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+/* Grid de Cards */
+.grid-servicos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.servico-card {
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.servico-card:hover {
+    transform: translateY(-10px);
+    border-color: #f1c40f;
+}
+
+.servico-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.servico-card h3 {
+    color: #f1c40f;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.servico-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.servico-card ul li {
+    margin-bottom: 12px;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 20px;
+}
+
+.servico-card ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #f1c40f;
+}
+
+/* Seção de Regiões */
+.atendimento-info {
+    text-align: center;
+    background: rgba(241, 196, 15, 0.05);
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px dashed #f1c40f;
+}
+
+.atendimento-info h2 {
+    color: #f1c40f;
+    margin-bottom: 20px;
+}
+
+.regioes-box {
+    background: rgba(0,0,0,0.3);
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 800px;
+    border-radius: 10px;
+}
+
+.regioes-box h4 {
+    margin-bottom: 10px;
+    color: #f1c40f;
+}
+
+.cta-atendimento {
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.btn-whatsapp {
+    background: #25d366;
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-whatsapp:hover {
+    background: #128c7e;
+    transform: scale(1.05);
+}
+
+
 
 /* 7. RESPONSIVIDADE (MEDIA QUERIES) */
 
 /* TABLET */
 @media (max-width: 1024px) {
     .grid-servicos { grid-template-columns: repeat(2, 1fr); }
-    .servicos-black { background-size: contain; background-position: center bottom; }
-
-
     
-/* 5. SEÇÃO SERVIÇOS (DARK PREMIUM) */
-.servicos-black {
-    /* CORREÇÃO AQUI: Escurecemos mais e garantimos que o fundo seja preto puro */
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.11)), 
-                url('images/fundo_preto_tablet.png');
-    background-color: #000; /* Preenche o canto esquerdo caso a imagem não alcance */
-    background-size: cover; 
-    background-position: right bottom;
-    background-repeat: no-repeat;
-    width: 100%;
-    padding: 100px 0;
-    color: #ffffff;
-    position: relative;
-    overflow: hidden;
-}
-
+    .servicos-black { 
+        background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.11)), 
+                          url('images/fundo_preto_tablet.png');
+        background-size: cover;
+    }
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
     body { padding-top: 70px; }
-    
     .hamburger { display: flex; }
 
-   #nav-menu {
+    #nav-menu {
         position: fixed;
         top: 0;
         right: -100%; 
         width: 70%;
-        
-        /* CORREÇÃO AQUI */
-        height: auto;          /* Deixa o menu do tamanho dos itens */
-        max-height: 85vh;      /* Limita a 85% da altura da tela */
-        border-radius: 0 0 0 20px; /* Arredonda o canto inferior para estilo premium */
-        
+        height: auto;
+        max-height: 85vh;
+        border-radius: 0 0 0 20px;
         background: #ffffff;
-        padding-top: 80px;      /* Espaço para o botão fechar/hambúrguer */
+        padding-top: 80px;
         transition: 0.4s ease-in-out;
         z-index: 1000;
         box-shadow: -5px 5px 15px rgba(0,0,0,0.2);
-        
-        /* Caso os itens ultrapassem a altura, ele cria um scroll interno */
         overflow-y: auto; 
     }
 
     #nav-menu.active { right: 0; }
-
     #nav-menu ul { flex-direction: column; text-align: center; }
-
-    #nav-menu ul li a {
-        padding: 20px;
-        border-bottom: 1px solid #eee;
-        display: block;
-    }
+    #nav-menu ul li a { padding: 20px; border-bottom: 1px solid #eee; display: block; }
 
     .hero { height: 75vh; }
-    .hero h1 { font-size: 2.5rem; }
-    
+    .hero h1 { font-size: 2.2rem; }
     .grid-servicos { grid-template-columns: 1fr; }
 
+    .servicos-black {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.11)), 
+                          url('images/fundo_preto_celular.png');
+        padding: 60px 0;
+    }
 
-    
-/* 5. SEÇÃO SERVIÇOS (DARK PREMIUM) */
-.servicos-black {
-    /* CORREÇÃO AQUI: Escurecemos mais e garantimos que o fundo seja preto puro */
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.11)), 
-                url('images/fundo_preto_celular.png');
-    background-color: #000; /* Preenche o canto esquerdo caso a imagem não alcance */
-    background-size: cover; 
-    background-position: right bottom;
-    background-repeat: no-repeat;
-    width: 100%;
-    padding: 100px 0;
-    color: #ffffff;
-    position: relative;
-    overflow: hidden;
-}
+    .logos-parceiros, .cartoes {
+        justify-content: center;
+    }
 
+    /* RESPONSIVIDADE SOBRE NÓS */
+    .sobre-header {
+        text-align: center;
+        border-left: none; /* Remove a borda lateral que empurra o texto */
+        padding-left: 0;
+        margin-bottom: 30px;
+    }
 
+    /* Centraliza o Box de Texto (Quem Somos) */
+    .sobre-text {
+        text-align: center;
+        border-left: none; /* Remove a borda amarela lateral se ela estiver empurrando */
+        margin: 0 auto;    /* Garante a centralização do bloco */
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Garante que a frase de efeito também centralize */
+    .tagline {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Centraliza os títulos internos */
+    .sobre-text h3 {
+        text-align: center;
+    }
+
+    /* Ajusta a galeria para não ter espaços sobrando nas laterais */
+    .gallery-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .gallery-grid img {
+        max-width: 90%; /* Evita que a foto cole nas bordas do celular */
+    }
 }
