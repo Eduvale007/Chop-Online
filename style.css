@@ -104,10 +104,14 @@ body {
 
 /* 4. HERO SECTION */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/chopp-main.png');
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('images/chopp-main.png');
     background-size: cover;      
     background-position: center top;
-    background-repeat: no-repeat;
+    
+    /* EFEITO PARALLAX NO TOPO */
+    background-attachment: fixed; 
+    
     height: 90vh;                
     width: 100%;
     display: flex;
@@ -115,7 +119,6 @@ body {
     justify-content: center;    
     text-align: center;
     color: white;
-    margin-top: -1px;
 }
 
 .hero h1 {
@@ -157,8 +160,12 @@ body {
                 url('images/fundo_preto.png');
     background-color: #000;
     background-size: cover; 
-    background-position: right bottom;
+    
+    /* ATIVA O EFEITO PARALLAX */
+    background-attachment: fixed; 
+    background-position: center; 
     background-repeat: no-repeat;
+    
     width: 100%;
     padding: 100px 0;
     color: #ffffff;
@@ -534,7 +541,43 @@ body {
     transform: scale(1.05);
 }
 
+/* 1. Animação de entrada no CONTAINER de serviços */
+.animar-container {
+    opacity: 0;
+    animation: surgirCard 0.8s ease-out forwards;
+}
 
+@keyframes surgirCard {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Delays para o efeito cascata no container */
+.animar-container:nth-child(1) { animation-delay: 0.2s; }
+.animar-container:nth-child(2) { animation-delay: 0.4s; }
+.animar-container:nth-child(3) { animation-delay: 0.6s; }
+
+/* 2. Efeito de levantamento no CARD (Independente) */
+.servico-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease;
+    /* Resetamos qualquer transform que possa ter herdado */
+    transform: translateY(0); 
+}
+
+.servico-card:hover {
+    /* Agora ele levanta suavemente sem travar */
+    transform: translateY(-15px); 
+    border-color: #f1c40f;
+    box-shadow: 0 15px 30px rgba(241, 196, 15, 0.3);
+}
 
 /* 7. RESPONSIVIDADE (MEDIA QUERIES) */
 
@@ -582,6 +625,11 @@ body {
         background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.11)), 
                           url('images/fundo_preto_celular.png');
         padding: 60px 0;
+    }
+
+    .servicos-black, .hero {
+        /* Desativa o fixed no mobile para evitar bugs de rolagem */
+        background-attachment: scroll; 
     }
 
     .logos-parceiros, .cartoes {
