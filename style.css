@@ -251,7 +251,12 @@ body {
     width: 100%;
 }
 
-.logos-parceiros img, .cartoes img {
+.logos-parceiros img {
+    max-width: 300px; /* O navegador reduz a imagem de 400px para 200px, dobrando a nitidez */
+    height: auto;
+}
+
+ .cartoes img {
     width: 100%;       /* Faz a imagem ocupar a largura da coluna do grid */
     height: auto;      /* Mantém a proporção */
     max-height: 50px;  /* Limita a altura para não desalinhar a linha */
@@ -522,6 +527,7 @@ body {
 
 .cta-atendimento {
     margin-bottom: 30px;
+    font-size: 17px;
     font-style: italic;
 }
 
@@ -577,6 +583,16 @@ body {
     transform: translateY(-15px); 
     border-color: #f1c40f;
     box-shadow: 0 15px 30px rgba(241, 196, 15, 0.3);
+}
+
+
+.dev{
+     color: #f1c40f !important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 10; 
+    display: inline-block; 
+    transition: all 0.3s ease;
 }
 
 /* 7. RESPONSIVIDADE (MEDIA QUERIES) */
