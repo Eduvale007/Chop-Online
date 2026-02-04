@@ -595,6 +595,140 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Container Principal da Página */
+/* Página de Produtos com Parallax */
+.produtos-page {
+    /* Gradiente para garantir que o texto branco seja lido sobre a imagem */
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.7)), 
+                url('images/fundo_preto_servicos.png'); /* Sua imagem de fundo */
+    
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    
+    /* O SEGREDO DO PARALLAX: Fixa a imagem enquanto o conteúdo rola */
+    background-attachment: fixed; 
+    
+    padding: 80px 0;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.titulo-sessao {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+}
+
+/* Grid de Produtos */
+.grid-produtos {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr; /* O primeiro card é mais largo na imagem */
+    gap: 25px;
+}
+
+/* Card de Produto */
+.produto-card {
+    background: #fff; /* Fundo branco para os cards como na foto */
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.produto-card:hover {
+    transform: translateY(-5px);
+}
+
+.produto-img {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.produto-img img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Informações do Produto */
+.produto-info {
+    padding: 20px;
+    background: #fff;
+    color: #333;
+}
+
+.produto-info h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.destaque-amarelo {
+    color: #d35400; /* Laranja/Amarelo escuro para o título do produto */
+}
+
+.produto-info p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #666;
+}
+
+/* Container que garante a centralização */
+.sessao-contato {
+    display: flex;         /* Usa Flexbox para alinhamento real */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente (se houver altura) */
+    width: 100%;           /* Garante que o container use a largura toda da página */
+    margin-top: 60px;      /* Espaço após os produtos */
+    margin-bottom: 40px;
+}
+
+/* O Botão com as mesmas configurações, apenas nome novo */
+.btn-acao-principal {
+    background-color: #25d366; 
+    color: #fff;
+    padding: 18px 35px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    display: flex;         /* Facilita o alinhamento do ícone com o texto */
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.btn-acao-principal:hover {
+    background-color: #128c7e;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+}
+
+/* No Desktop: esconde a quebra de linha */
+.mobile-only {
+    display: none;
+}
+
 /* 7. RESPONSIVIDADE (MEDIA QUERIES) */
 
 /* TABLET */
@@ -605,6 +739,10 @@ body {
         background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.11)), 
                           url('images/fundo_preto_tablet.png');
         background-size: cover;
+    }
+
+    .grid-produtos {
+        grid-template-columns: 1fr; /* Uma coluna no celular */
     }
 }
 
@@ -691,5 +829,23 @@ body {
 
     .gallery-grid img {
         max-width: 90%; /* Evita que a foto cole nas bordas do celular */
+    }
+
+  .mobile-only {
+        display: block;
+        content: ""; /* Garante que o espaço seja interpretado */
+        margin-bottom: 5px; /* Opcional: um tiquinho de espaço entre as linhas */
+    }
+
+    .btn-acao-principal {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+        text-align: center; /* Centraliza as duas linhas de texto dentro do botão */
+        flex-direction: column; /* Coloca o ícone em cima do texto (opcional) */
+        gap: 10px;
+    }
+    
+    .btn-acao-principal span {
+        display: block; /* Garante que o span respeite a quebra */
     }
 }
