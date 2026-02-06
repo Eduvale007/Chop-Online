@@ -689,6 +689,31 @@ body {
     color: #666;
 }
 
+/* Container das especificações */
+.produto-specs {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil */
+}
+
+/* Estilo de cada item (IBU / ABV) */
+.spec-item {
+    background: rgba(241, 196, 15, 0.1); /* Fundo amarelo bem clarinho */
+    color: #f1c40f; /* Cor Amarelo Chopp */
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(241, 196, 15, 0.3);
+}
+
+.spec-item strong {
+    color:  #d35400; /* Deixa o rótulo IBU/ABV em branco para destacar */
+    margin-right: 3px;
+}
+
 /* Container que garante a centralização */
 .sessao-contato {
     display: flex;         /* Usa Flexbox para alinhamento real */
