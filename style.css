@@ -814,6 +814,137 @@ body {
     overflow: hidden;
     min-height: 400px;
 }
+
+
+/* --- Seção Principal com Parallax --- */
+.crazy-duck-page {
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
+                url('images/fundo_preto_servicos.png'); /* Sua imagem de fundo */
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* --- Títulos e Cabeçalho --- */
+.crazy-duck-page .titulo-sessao {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.crazy-duck-page .subtitulo {
+    text-align: center;
+    color: #f1c40f; /* Amarelo Chopp */
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 80px;
+}
+
+/* --- Container das Linhas Alternadas --- */
+.lista-servicos-duck {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estrutura Flexível da Linha */
+.duck-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px; /* Respiro entre texto e imagem */
+    margin-bottom: 100px; /* Espaço entre as seções para não ficar apertado */
+}
+
+/* O SEGREDO: Inverte a ordem apenas nas linhas pares (2, 4, 6...) */
+.duck-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* --- Coluna de Texto (Glassmorphism) --- */
+.duck-col-texto {
+    flex: 1;
+    padding: 45px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 6px solid #f1c40f; /* Detalhe lateral amarelo */
+    transition: transform 0.3s ease;
+}
+
+.duck-col-texto:hover {
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.duck-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.duck-col-texto h3 {
+    color: #f1c40f;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.duck-col-texto p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #e0e0e0;
+}
+
+/* --- Coluna de Imagem --- */
+.duck-col-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.duck-col-img img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Botão de WhatsApp --- */
+.wrapper-botao-contato {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.btn-whatsapp-contato {
+    background-color: #25d366;
+    color: #fff;
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+}
+
+.btn-whatsapp-contato:hover {
+    background-color: #128c7e;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+}
+
+
 /* 7. RESPONSIVIDADE (MEDIA QUERIES) */
 
 /* TABLET */
@@ -951,6 +1082,31 @@ body {
 
     .btn-whatsapp-contato {
         width: 100%; /* Botão largo no mobile */
+    }
+
+
+
+    .duck-row, .duck-row:nth-child(even) {
+        flex-direction: column-reverse; /* Imagem sempre em cima do texto no mobile */
+        gap: 30px;
+        margin-bottom: 60px;
+        text-align: center;
+    }
+
+    .duck-col-texto {
+        padding: 30px;
+        border-left: none;
+        border-top: 6px solid #f1c40f; /* No mobile a borda fica no topo */
+    }
+
+    .crazy-duck-page {
+        background-attachment: scroll; /* Melhora performance no mobile */
+        padding: 60px 20px;
+    }
+
+    .btn-whatsapp-contato {
+        width: 100%;
+        justify-content: center;
     }
 
 }
