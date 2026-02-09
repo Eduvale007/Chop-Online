@@ -575,7 +575,6 @@ body {
 .cta-atendimento {
     margin-bottom: 30px;
     font-size: 17px;
-    font-style: italic;
 }
 
 .btn-whatsapp {
@@ -1014,6 +1013,11 @@ body {
     background-color: #128c7e;
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+}
+
+
+address {
+    font-style: normal;
 }
 
 
