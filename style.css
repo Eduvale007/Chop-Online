@@ -857,6 +857,21 @@ body {
     gap: 10px;
 }
 
+.wrapper-lista-contato i {
+    color: #ffcc00; /* Cor amarela do tema Chopp Online */
+    margin-right: 12px; /* Espaço entre o ícone e o número */
+    width: 18px; /* Largura fixa para os ícones não desalinharem os números */
+    text-align: center; /* Centraliza o desenho do ícone dentro da largura fixa */
+}
+
+.item-contato i {
+    color: #ffcc00; /* Força a cor amarela */
+    margin-right: 12px;
+    margin-top: 5px; /* Ajuste fino para o ícone alinhar com a primeira linha */
+    width: 20px;
+    text-align: center;
+}
+
 /* Botão WhatsApp */
 .wrapper-botao-contato {
     margin-top: 40px;
@@ -1018,6 +1033,13 @@ body {
 
 address {
     font-style: normal;
+}
+
+address i {
+    color: #ffcc00; /* Cor amarela para combinar com o seu tema */
+    margin-right: 10px;
+    width: 20px; /* Garante que os ícones fiquem alinhados verticalmente */
+    text-align: center;
 }
 
 
