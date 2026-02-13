@@ -684,68 +684,87 @@ body {
     gap: 30px;
     justify-content: center;
     align-items: stretch;
-}
+}/* Card de Produto - Efeito Glassmorphism */
 
-/* Card de Produto */
 .produto-card {
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
     display: flex;
-    flex-direction: column; /* Organiza imagem em cima e info embaixo */
-    width: 350px; /* Largura fixa para padronizar todos como o da direita */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex-direction: column;
+    width: 350px;
+   min-height: 100px;/* AJUSTE: Defina uma altura que caiba o texto mais longo */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .produto-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    border-color: #f1c40f; /* Brilha em Amarelo Chopp no hover */
 }
 
 .produto-img {
-  width: 100%;
-    height: 390px; /* Defina uma altura fixa para a área da imagem */
+    width: 100%;
+    height: 390px;
     overflow: hidden;
 }
 
 .produto-img img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* SEGREDO: A imagem preenche o espaço sem distorcer */
+    object-fit: cover;
     display: block;
 }
 
-/* Informações do Produto */
+/* Informações do Produto - AJUSTADO */
 .produto-info {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-    background: #fff;
-    color: #333;
+    background: transparent;
+    height: 20%; /* Ocupa todo o espaço vertical do card */
 }
 
 .produto-info h4 {
-    font-size: 1rem;
+    min-height: 50px; /* Garante que títulos de 1 ou 2 linhas ocupem o mesmo espaço */
     margin-bottom: 10px;
-    font-weight: 700;
 }
 
+/* Título em Amarelo Chopp para contrastar com o fundo escuro */
 .destaque-amarelo {
-    color: #d35400; /* Laranja/Amarelo escuro para o título do produto */
+    color: #f1c40f; 
 }
 
 .produto-info p {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+    
+    /* SEGREDO: Definir uma altura mínima para o parágrafo */
+    min-height: 60px; 
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
 }
 
 /* Container das especificações */
 .produto-specs {
+    margin-top: auto; /* Empurra os badges para a base do card */
     display: flex;
     gap: 15px;
-    margin-top: 15px;
     padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Estilo para os Badges ficarem visíveis no escuro */
+.spec-item {
+    background: rgba(241, 196, 15, 0.1);
+    color: #f1c40f;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(241, 196, 15, 0.3);
+}
 /* Estilo de cada item (IBU / ABV) */
 .spec-item {
     background: rgba(241, 196, 15, 0.1); /* Fundo amarelo bem clarinho */
