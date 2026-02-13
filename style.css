@@ -691,7 +691,7 @@ body {
     flex-direction: column;
     width: 350px;
    min-height: 100px;/* AJUSTE: Defina uma altura que caiba o texto mais longo */
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
     border-radius: 15px;
     overflow: hidden;
