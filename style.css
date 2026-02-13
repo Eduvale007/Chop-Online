@@ -691,7 +691,7 @@ body {
     flex-direction: column;
     width: 350px;
    min-height: 100px;/* AJUSTE: Defina uma altura que caiba o texto mais longo */
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(12px);
     border-radius: 15px;
     overflow: hidden;
@@ -722,7 +722,7 @@ body {
     flex-direction: column;
     padding: 20px;
     background: transparent;
-    height: 20%; /* Ocupa todo o espaço vertical do card */
+    height: 40%; /* Ocupa todo o espaço vertical do card */
 }
 
 .produto-info h4 {
