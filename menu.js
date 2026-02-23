@@ -31,3 +31,22 @@ document.addEventListener('click', (event) => {
 document.querySelectorAll('#nav-menu a').forEach(link => {
     link.addEventListener('click', closeMenu);
 });
+
+// Verifica se o usuário já confirmou a idade anteriormente
+window.onload = function() {
+    const confirmacao = localStorage.getItem("maiorDe18");
+    if (confirmacao === "true") {
+        document.getElementById("modal-idade").style.display = "none";
+    }
+}
+
+function confirmarIdade() {
+    // Salva a escolha no navegador do usuário
+    localStorage.setItem("maiorDe18", "true");
+    document.getElementById("modal-idade").style.display = "none";
+}
+
+function sairDoSite() {
+    // Redireciona para o Google ou outra página segura
+    window.location.href = "https://www.google.com.br";
+}
